@@ -4,5 +4,43 @@
     Layout = "~/Views/Shared/_Login_LayoutPage.cshtml";
 }
 
-<h2>Login</h2>
+<!-- form login first  -->
+<section class="container">
+    <div class="form-login">
+        <div class="form-content">
+            <header>Login</header>
+            <div class="linetop"><br /> </div>
+            <form action="#">
+                <div class="field field-input">
+                    <input type="email" placeholder="Your Email" class="input" />
+                </div>
+
+                <div class=" field field-input">
+                    <input type="password" placeholder="Your Password" class="psw" />
+                </div>
+
+                <div class="form-link">
+                    <a href="#" class="forgot-pass">Forgot Password? </a>
+                </div>
+
+                <div class="field-button">
+                    <button>Log in</button>
+                </div>
+
+            </form>
+            <div class="change-link">
+                <span>Don't have an account?<a href="#" class="sign-up-link"> SignUp </a></span>
+            </div>
+        </div>
+        <div class="line">
+            <br />
+        </div>
+        <div class="options-media">
+            <p><a href="#" class="field-facebook"> <img src="~/Content/images/Facebook_Logo_(2019).png" alt="" class="facebook-img" />Login with Facebook</a> </p>
+            <p><a href="#" class="field-google"> <img src="~/Content/images/Google__G__Logo.svg.png" alt="" class="google-img" /> <span>Login with Google</span> </a></p>
+        </div>
+    </div>
+</section>
+
+
 

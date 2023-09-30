@@ -1,0 +1,204 @@
+﻿body {
+    background: linear-gradient(to left, #0C356A,#93BFCF);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    height: 100vh;
+    height: 100%;
+    display: flex;
+    padding: 230px;
+    justify-content: center;
+}
+
+.form-login {
+    max-width: 1600px;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: snow;
+}
+
+header {
+    font-size: 40px;
+    font-weight: 900;
+    color: #000000;
+    text-align: center;
+    padding: 25px;
+}
+
+form {
+    margin-top: 20px;
+    width: 450px;
+    height: 100%;
+}
+
+    form .field {
+        height: 30px;
+        width: auto;
+        margin-top: 25px;
+    }
+
+.field input {
+    height: 150%;
+    width: 100%;
+    padding: 30px;
+}
+
+.field-button {
+    height: auto;
+    width: auto;
+    text-align: center;
+}
+
+
+
+.content .container .form-login .form-content .field-button button {
+    height: 30px;
+    width: 80px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #1D5D9B;
+    box-shadow: 0px 2px;
+    margin: 20px;
+    transition: all 0.3s ease;
+}
+
+    .content .container .form-login .form-content .field-button button:hover {
+        background-color: #106dcb;
+    }
+
+.field input {
+    font-size: 14px;
+    font-weight: 200;
+    padding: 0 10px;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.change-link span,
+.change-link span a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.content .container .form-login .form-content .form-link .forgot-pass {
+    text-decoration: none;
+    margin-right: 320px;
+}
+
+.content .container .form-login .form-content .change-link span a {
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.content .container .form-login .form-content .change-link span {
+    padding-bottom: 10px;
+    font-weight: 900;
+    margin-left: 120px;
+}
+
+    .content .container .form-login .form-content .change-link span a:hover {
+        text-decoration: underline
+    }
+
+.content .container .form-login .form-content .form-link .forgot-pass:hover {
+    text-decoration: underline
+}
+
+.line {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: dimgrey;
+}
+
+
+    .line::before {
+        content: 'Or';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        color: #232836;
+        padding: 0 15px;
+    }
+
+.linetop {
+    position: relative;
+    height: 1px;
+    width: auto;
+    margin: 36px 0;
+    background-color: dimgrey;
+}
+
+
+.content .container .form-login .options-media .field-facebook {
+    display: flex;
+    background-color: #4267b2;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.content .container .form-login .options-media .field-facebook {
+    color: white;
+    text-decoration: none;
+}
+
+.content .container .form-login .options-media .facebook-img {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%)
+}
+
+.content .container .form-login .options-media .field-google {
+    color: black;
+    text-decoration: none;
+}
+
+.content .container .form-login .options-media .field-google {
+    align-items: center;
+    justify-content: center;
+}
+
+.content .container .form-login .options-media .field-facebook {
+    align-items: center;
+    justify-content: center;
+}
+
+.content .container .form-login .options-media .google-img {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%)
+}
+
+.content .container .form-login .options-media .field-google {
+    display: flex;
+    border: 1px outset #CACACA;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    justify-content: center;
+    margin-top: 4px;
+}

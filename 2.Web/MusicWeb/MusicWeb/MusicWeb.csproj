@@ -149,6 +149,7 @@
     <Content Include="Content\images\gg.png" />
     <Content Include="Content\music\Alan-Walker-Faded-Faded.mp3" />
     <Content Include="Content\signupStylesheet.css" />
+    <Content Include="Content\LoginSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
