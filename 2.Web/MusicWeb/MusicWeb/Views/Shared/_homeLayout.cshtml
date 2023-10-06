@@ -19,7 +19,7 @@
         <nav class="navbar navbar-brand">
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand" href="#">
-                    <img src="~/Content/images/logoHuflit.png" />
+                    @*<img src="~/Content/images/logoHuflit.png" />*@
                     <span>HUFLIT</span>
                 </a>
             </div>
@@ -75,37 +75,104 @@
 
 
     <div class="div-content">
+        <header class="header-content">
+            <div class="container_header--content">
+                <span class="container_header--content_btns">
+                    <button class="container_header--content_btn ">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="container_header--content_btn ">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </span>
+                <div class="container_header--content_search">
+                    <i class="hidden_on fas container_header--content_search--icon fa-search"></i>
+                    <input class="content_search_history" type="search" placeholder="Nhập tên bài hát, Nghệ sĩ hoặc MV...">
+                </div>
+            </div>
+            
+        </header>
+        <div class="content-oop">
+            @RenderBody()
+        </div>
 
-        @RenderBody()
     </div>
 
 
     <div class="div-footer">
-        <div class="media">
-            <div class="media-img">
-                <img src="~/Content/images/faded.jpg" />
+        <div class="media ">
+            <div class="media_cd" style="background-image: url(http://tienganhonline.com/wp-content/uploads/2019/04/faded-678x381.jpg)">
+                <!-- <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/1/b/9/a/1b9a056a527b7c7409e890a48bb7fac6.jpg"> -->
             </div>
-            <a href="#" class="btn btn-outline-secondary">
-                <h5>Faded</h5>
-                <span>Alan Walker</span>
-            </a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ban-fill" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM2.71 12.584c.218.252.454.488.706.707l9.875-9.875a7.034 7.034 0 0 0-.707-.707l-9.875 9.875Z" />
-            </svg>
+            <div class="media_title">
+                <marquee class="media_title--name" scrolldelay="130">Faded</marquee>
+                <a class="media_title--author">Alan Walker</a>
+            </div>
+            <div class="media_icon">
+                <ul>
+                    <li class="meadia_icon_more heart">
+                        <i class="fas fa-heart"></i>
+                        <i class="far fa-heart"></i>
+                    </li>
+                    <li class="meadia_icon_more">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <audio controls id="song">
-            <source src="~/Content/music/Alan-Walker-Faded-Faded.mp3" type="audio/mp3" />
-        </audio>
-        <div class="controls">
-            <div><i class="fa-solid fa-backward"></i></div>
-            <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
-            <div><i class="fa-solid fa-forward"></i></div>
-            <input type="range" value="0" id="process" />
+
+        <div class="controls ">
+            <ul class="controls_player">
+                <li class="controls_player--icon">
+                    <i class="fas fa-random"></i>
+                </li>
+                <li class="controls_player--icon">
+                    <i class="fas fa-step-backward"></i>
+                </li>
+                <li class="controls_player--icon">
+                    <i class="far fa-play-circle"></i>
+                    <i class="far fa-pause-circle"></i>
+                </li>
+                <li class="controls_player--icon">
+                    <i class="fas fa-step-forward"></i>
+                </li>
+                <li class="controls_player--icon">
+                    <i class="fas fa-redo"></i>
+                </li>
+            </ul>
+            <div class="controls_time">
+                <span class="controls_time--right">00.00</span>
+                <input id="progress" class="controls_time--range" value="0" type="range" step="1" min="0" max="100">
+                <span class="controls_time--left">03.22</span>
+            </div>
         </div>
-        <div class="control-extend">Control Extend></div>
+
+
+        <div class="controls-extend">
+            <ul class="extend-item">
+                <li class="controls_extend--lever_item hion-on-mobile-table">
+                    <i class="fab fa-youtube-square"></i>
+                    <!-- <i class="fab fa-vimeo"></i> -->
+                </li>
+                <li class="controls_extend--lever_item  hion-on-mobile-table">
+                    <i class="fas fa-microphone"></i>
+                </li>
+                <li class="controls_extend--lever_item">
+                    <i class="fas fa-volume-up"></i>
+                </li>
+                <li class="controls_extend--lever_item_range">
+                    <input id="controls_lever_range" type="range" class="range_volum" value="100" step="1" min="0" max="100">
+                </li>
+                <li class="controls_extend--lever_item ">
+                    <i class="fas fa-expand-alt"></i>
+                </li>
+                <li class="controls_extend--lever_item_boder">
+                </li>
+                <li class="controls_extend--lever_item">
+                    <i class="fas fa-sliders-h"></i>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="~/Scripts/homeLayoutScript.js"></script>
 </body>

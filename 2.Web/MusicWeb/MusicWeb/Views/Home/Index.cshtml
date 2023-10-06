@@ -3,3 +3,55 @@
     Layout = "~/Views/Shared/_homeLayout.cshtml";
 }
 
+@*<div class="d-flex flex-wrap">
+    @for (int i = 0; i < 30; i++)
+    {
+        <div class="card m-3 justify-content-center" style="width: 15rem;height:15rem">
+            <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        </div>
+    }
+</div>*@
+<p>Chào buổi <b>tối: </b></p>
+<div class="history-mix">
+    <a class="card-history-mixtape">
+        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        <h5>Mixtape 1</h5>
+    </a>
+    <a class="card-history-mixtape">
+        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        <h5>Mixtape 2</h5>
+    </a>
+    <a class="card-history-mixtape">
+        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        <h5>Mixtape 3</h5>
+    </a>
+    <a class="card-history-mixtape">
+        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        <h5>Mixtape 4</h5>
+    </a>
+    <a class="card-history-mixtape">
+        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        <h5>Mixtape 5</h5>
+    </a>
+    <a class="card-history-mixtape">
+        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
+        <h5>Mixtape 6</h5>
+    </a>
+</div>
+
+
+<p>Dành cho bạn: </p>
+<div class="recommend-mixtape">
+    <div class="recommend-mixtap-items">
+        @*<img src="~/Content/images/faded-678x381.jpg"/>*@
+        <i class="fa-regular fa-circle-play"></i>
+    </div>
+</div>
+
+
+
+
+@*xử lí nhạc*@
+<audio controls id="audio-control">
+    <source src="~/Content/music/Alan-Walker-Faded-Faded.mp3" />
+</audio>

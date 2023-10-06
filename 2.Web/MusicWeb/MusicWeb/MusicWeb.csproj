@@ -146,7 +146,10 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\homeStylesheet.css" />
     <Content Include="Content\images\Facebook_Logo_%282019%29.png.png" />
+    <Content Include="Content\images\faded-678x381.jpg" />
+    <Content Include="Content\images\faded.jpg" />
     <Content Include="Content\images\gg.png" />
+    <Content Include="Content\images\logoHuflit.png" />
     <Content Include="Content\music\Alan-Walker-Faded-Faded.mp3" />
     <Content Include="Content\signupStylesheet.css" />
     <Content Include="Content\LoginSheet.css" />
