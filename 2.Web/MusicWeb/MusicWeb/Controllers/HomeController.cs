@@ -16,6 +16,9 @@ namespace MusicWeb.Controllers
         {
             return View();
         }
-
+        public ActionResult DetailMusic()
+        {
+            return View();
+        }
     }
 }

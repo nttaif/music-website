@@ -192,6 +192,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_SignUp_LayoutPage.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Views\Home\DetailMusic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
