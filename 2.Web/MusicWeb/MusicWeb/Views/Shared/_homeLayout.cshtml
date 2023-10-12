@@ -10,87 +10,81 @@
     <script src="~/Scripts/bootstrap.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
 </head>
-<body>
-    <div class="div-menu">
-        @*hình ảnh brand*@
-        <div class="menu-logo">
-            <img src="~/Content/images/logoHuflit.png" />
-        </div>
-        @*các menu link*@
-        <div class="menu-sidebar">
-            <div class="menu-link">
-                <h4 class="active">
-                    <i class="bi bi-music-note-list"></i>
-                    <a href="/home/index" class="nav-link active"><b>Trang chủ</b></a>
-                </h4>
-                <h4>
-                    <i class="bi bi-vinyl-fill"></i>
-                    <a href="/Home/Discover" class="nav-link "><b>Khám phá</b></a>
-                </h4>
-                <h4>
-                    <i class="bi bi-book-half"></i>
-                    <a class="nav-link  disabled"><b>Thư viện:</b></a>
-                </h4>
+<body style="background-color:black">
+    @*Header và các menu link chính của website*@
+    <div class="div-sidebar justify-content-center">
+        <nav class="navbar navbar-brand">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand" href="#">
+                    <img src="~/Content/images/logoHuflit.png" />
+                    <span>HUFLIT</span>
+                </a>
             </div>
-            <div class="menu-music">
-                <ul class="list-music">
-                    @for (int i = 0; i < 10; i++)
-                    {
-
-                        <li>
-                            <img src="~/Content/images/faded.jpg">
-                            <h6>
-                                Faded<br />
-                                <span>Alan Walker</span>
-                            </h6>
-                            <i class="bi bi-play-circle"></i>
-                        </li>
-                    }
-                </ul>
+        </nav>
+        <div class="d-flex flex-column mb-3">
+            <div class="p-2">
+                <a href="#" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                        <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                    </svg>
+                    <span>Trang chủ</span>
+                </a>
             </div>
-
+            <div class="p-2">
+                <a href="#" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-disc-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-6 0a2 2 0 1 0-4 0 2 2 0 0 0 4 0zM4 8a4 4 0 0 1 4-4 .5.5 0 0 0 0-1 5 5 0 0 0-5 5 .5.5 0 0 0 1 0zm9 0a.5.5 0 1 0-1 0 4 4 0 0 1-4 4 .5.5 0 0 0 0 1 5 5 0 0 0 5-5z" />
+                    </svg>
+                    <span>Khám phá</span>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="#" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
+                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z" />
+                    </svg>
+                    <span>Thư viện</span>
+                </a>
+            </div>
         </div>
+        @*Các danh bài hát và playlist đã lưu*@
+
+        <ul class="list-group">
+            <li><h4><b>Danh sách các playlist đã lưu:</b></h4></li>
+            @for (int i = 0; i < 10; i++)
+            {
+                <li class="list-group-item">
+                    <a href="#" class="nav-link">
+                        <img src="~/Content/images/faded.jpg" width="50" height="50">
+                        <marquee direction="right" width="30%">
+                            <b>Faded</b>
+                        </marquee>
+                        <span>Alan Walker</span>
+                    </a>
+                </li>
+            }
+        </ul>
+
     </div>
+
+
 
     <div class="div-content">
         @RenderBody()
     </div>
-
-
     <div class="div-footer">
         <div class="media">
-            <div class="media-cd">
-                @*thêm backgroud image theo ảnh nền bài nhạc*@
+            <div class="media-img">
+                <img src="~/Content/images/faded.jpg" />
             </div>
-            <h6>
-                Faded<br />
-                <span>Alan Walker</span>
-            </h6>
-            <i class="bi bi-heart-fill"></i>
-            <i class="bi bi-download"></i>
 
         </div>
-        <div class="control">
-            <div class="list-buton">
-                <i class="bi bi-repeat"></i>
-                <i class="bi bi-skip-start-fill"></i>
-                <i class="bi bi-play-fill"></i>
-                <i class="bi bi-skip-end-fill"></i>
-                <i class="bi bi-arrow-clockwise"></i>
-            </div>
-            <div class="status-play">
-                <span id="currentStart">0:00</span>
-                <div class="bar">
-                    <input type="range" id="seek" min="0" max="100">
-                </div>
-                <span id="currentEnd">3:50</span>
-            </div>
-        </div>
-        <div class="control-extend">
-
-        </div>
+        <div class="control">control</div>
+        <div class="control-extend">Control Extend</div>
     </div>
-
 </body>
 </html>

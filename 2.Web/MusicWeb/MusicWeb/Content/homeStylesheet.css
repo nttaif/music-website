@@ -1,286 +1,194 @@
 ﻿body {
-    margin: 0px;
-    /*display:flex;
-    flex-wrap:wrap;*/
-}
-
-
-.div-content {
-    width: 75%;
-    height: 500px;
-    float:left;
-}
-
-/*layout của web*/
-.div-menu {
-    background-color: #2b3f69;
-    width: 25%;
-    height: 500px;
-    float: left;
-}
-
-.container {
-    background-color: #132958!important;
-    width: 75%;
-    height: 520px;
-    /*float: left;*/
-}
-
-.div-footer {
-    background-color: #1a2d56;
-    width: 100%;
-    height: 90px;
-    clear: both;
-    align-items: center;
     display: flex;
+    flex-wrap: wrap;
+
 }
 
-                /*sidebar*/
-/*logo brand*/
-.div-menu .menu-logo {
-    width: 100%;
-    height: 70px;
-    text-align: center;
-    align-content: center;
+.div-sidebar {
+    width: 20%;
+    height: 90vh;
+    /*background-color: #121212;*/
+    border: 1px solid #ffff;
+    display:block;
 }
 
-    .div-menu .menu-logo img {
+
+    .div-sidebar nav .container-fluid a img {
         width: 100px;
-        height: 50px;
-        text-align: center;
-        align-content: center;
-    }
-/*các menu link*/
-.div-menu .menu-sidebar {
-    width: 100%;
-    height: 40px;
-}
-
-    .menu-sidebar .menu-link {
-        width: 100%;
-        height: 40px;
-        /*border: 1px solid #ffff*/
+        color: white;
     }
 
-.div-menu .menu-sidebar .menu-link h4 {
-    padding-top: 15px;
-    color: whitesmoke;
-    cursor: pointer;
-    display: flex;
-    font-size: 17px;
-    margin: 3px;
-    font-weight: 100;
-    margin-left: 30px;
-    align-items: center;
-    transition: .3s linear;
-}
-
-    .div-menu .menu-sidebar .menu-link h4 a {
-        margin-left: 10px;
+    .div-sidebar nav .container-fluid a span {
+        color: white;
+        font-weight: 900;
+        font-size: 25px;
     }
 
-    .div-menu .menu-sidebar .menu-link h4:hover {
-        color: #ff6a00 !important;
-    }
-/*thư viện các playlist đã lưu*/
-.div-menu .menu-sidebar .menu-music {
-    width: 80%;
-    height: 162px;
-    /*border: 1px solid whitesmoke;*/
-    overflow: auto;
-    margin-top:150px;
-    
-}
-
-    .div-menu .menu-sidebar .menu-music::-webkit-scrollbar {
-        display: none;
+    .div-sidebar .flex-column {
+        background-color: #232323;
+        color: white;
+        font-size: 22px;
+        font-weight: 500;
+        margin: 10px 20px 0px 20px;
     }
 
-    .div-menu .menu-sidebar .menu-music .list-music {
-        list-style-type: none;
-    }
-
-        .div-menu .menu-sidebar .menu-music .list-music li {
-            width: 98%;
-            height: 50px;
-            /*border: 1px solid #ffff;*/
+        .div-sidebar .flex-column .p-2 a {
             display: flex;
-            position: relative;
-            align-items: center;
-            margin-top: 2px;
-            padding: 5px 0px 5px 0px;
-            transition: .3s linear;
         }
 
-            .div-menu .menu-sidebar .menu-music .list-music li:hover {
-                background-color: burlywood;
-                color: aquamarine;
+            .div-sidebar .flex-column .p-2 a span {
+                margin: 0px 0px 0px 20px;
             }
 
-            .div-menu .menu-sidebar .menu-music .list-music li img {
-                margin-left: 5px;
-                width: 30px;
-                height: 40px;
-            }
+        .div-sidebar .flex-column .p-2:hover {
+            color: #ff6a00;
+            font-size: 25px;
+            font-weight: 700;
+        }
 
-            .div-menu .menu-sidebar .menu-music .list-music li h6 {
-                margin-left: 8px;
-                margin-right: 50px;
-                font-size: 18px;
-                color: aliceblue;
-                /*border:1px solid #ffff;*/
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
+        .div-sidebar .flex-column .p-2:active {
+            color: #ffd800;
+            box-shadow: #ff6a00;
+            font-size: 24px;
+            font-weight: 700;
+        }
 
-                .div-menu .menu-sidebar .menu-music .list-music li h6 span {
-                    font-size: 9px;
-                    margin-top: 0px;
-                    font-weight: 100;
-                    color: #808080;
-                }
 
-            .div-menu .menu-sidebar .menu-music .list-music li .bi {
-                position: relative;
-                right: 5px;
-                color: aliceblue;
-                font-size: 30px;
-            }
-/*thanh trạng thái footer*/
-.div-footer .media {
-    width: 25%;
-    height: 90px;
-    border: 1px solid #ffff;
-    display: flex;
-    align-items: center;
-}
-    .div-footer .media .media-cd {
-        margin-left: 10px;
-        margin-top: 5px;
-        width: 50px;
-        height:50px;
-        border: 1px solid #ffff;
-        background-size: cover;
-        cursor: pointer;
-        /*bo tròn*/
-        border-radius: 50px;
-        animation: rotate 5s linear infinite;
-        background-image: url(https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg);
-    }
-    .div-footer .media .bi {
-        color:white !important;
-        cursor:pointer;
-    }
-    .div-footer .media .bi:hover {
-        color: aquamarine !important;
-    }
-@keyframes rotate {
-    from {
-        transform: rotate(-360deg);
-    }
 
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.div-footer .media h6 {
-    margin-left: 3px;
-    color: aliceblue;
-    font-size: 18px;
-    text-align: center;
-}
-
-    .div-footer .media h6 span {
-        font-size: 10px;
-        color: burlywood;
-    }
-
-.div-footer .media .bi {
-    font-size: 18px;
-    color: burlywood;
-    margin-left: 20px;
-}
-
-.div-footer .control {
-    border: 1px solid #ffff;
-    width: 50%;
-    height: 90px;
-    align-items: center;
-}
-
-    .div-footer .control .list-buton {
-        /*border: 1px solid #ffff;*/
+    .div-sidebar ul {
+        background-color: #232323 !important;
         width: 100%;
-        height: 50px;
-        text-align: center;
+        height: 50vh;
+        overflow: auto;
+        text-overflow: ellipsis;
+        margin: 20px 0px 0px 0px;
+        gap: 8px;
+        display: flex;
     }
 
-        .div-footer .control .list-buton .bi {
-            font-size: 20px;
-            color: whitesmoke;
-            font-weight: 200;
-            border-radius: 50%;
-            cursor: pointer;
-            margin-left: 30px;
+        .div-sidebar ul::-webkit-scrollbar {
+            display: none;
         }
 
-            .div-footer .control .list-buton .bi:hover {
-                color: burlywood;
-            }
+    .div-sidebar h4 b {
+        color: aliceblue;
+        font-size: 20px;
+        font-weight: 900;
+        margin: 30px 0px 0px 10px;
+    }
 
-        .div-footer .control .list-buton .bi-play-fill {
-            font-size: 40px;
-            color: whitesmoke;
+    .div-sidebar ul li {
+        background-color: #232323 !important;
+        color: aliceblue;
+        font-size: 20px;
+        margin: 10px 0px 0px 0px;
+    }
+
+
+        .div-sidebar ul li a:hover {
+            background-color: #b6b6b6;
+            box-shadow: #ffd800;
+            border-radius: 10px;
+        }
+
+        .div-sidebar ul li a:active {
+            font-size: 20px;
+            background-color: #6b8a8e;
+        }
+
+        .div-sidebar ul li a img {
+            border-radius: 10px;
+        }
+
+        .div-sidebar ul li a span {
+            color: #8a8383;
+            margin: 0px 0px 0px 10px;
+            font-weight: 800;
             
         }
+        
 
-    .div-footer .control .status-play {
-        /*border: 1px solid #ffff;*/
-        color: aliceblue;
-        display: flex;
-        align-content: center;
-        text-align: center;
-        justify-content: center;
-    }
 
-        .div-footer .control .status-play span {
-            color: aliceblue;
-            font-size: 15px;
-            font-weight: 400;
+
+
+
+
+
+
+
+        .div-content {
+            width: 80%;
+            height: 90vh;
+            border: 1px solid #ffff;
         }
 
-    .div-footer .control #currentStart {
-        margin: 0px 0px 0px 20px;
-    }
-
-    .div-footer .control .bar {
-        margin: 0px 15px 0px 10px;
-        position: relative;
-        width: 43%;
-        height: 2px;
-    }
-
-        .div-footer .control .bar input {
-            width: 100%;
-            height: 2px;
-            cursor: pointer;
-            /*overflow:hidden;*/
-            border-bottom-left-radius: 1px;
-            border-bottom-right-radius: 1px;
-            border-top-left-radius: 1px;
-            border-top-right-radius: 1px;
-        }
-
-.div-footer .control-extend {
+.div-footer {
+    width: 100%;
+    height: 10vh;
     border: 1px solid #ffff;
-    width: 25%;
-    height: 90px;
+    display: flex;
+    margin: 0px;
+    color: aliceblue;
 }
+    .div-footer .media {
+        display: flex;
+        width: 35%;
+        border: 1px solid #ffff;
+    }
+        .div-footer .media .media-img {
+            width: 85px;
+            border-radius: 50%;
+            border: 1px solid #ffff;
+            animation: rotate 5s linear infinite;
+            margin:5px;
+        }
+        .div-footer .media .media-img img{
+            width: 100%;
+            height:100%;
+            border-radius: 50%;
+            border: 1px solid #ffff;
+        }
 
 
-            /*content*/
-.div-content .container{
-    color:white;
+
+    .div-footer .control {
+        display: flex;
+        width: 30%;
+        border: 1px solid #ffff;
+    }
+    .div-footer .control-extend {
+        display: flex;
+        width: 35%;
+        border: 1px solid #ffff;
+    }
+
+
+
+    @keyframes rotate{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform:rotate(360deg);
+        }
+    }
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 700px) {
+    .div-sidebar, .div-content, .div-footer {
+        width: 100%;
+    }
 }
