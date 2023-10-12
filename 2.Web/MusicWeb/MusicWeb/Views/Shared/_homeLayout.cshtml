@@ -12,6 +12,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/2c4590e3d7.js" crossorigin="anonymous"></script>
     <script src="~/Scripts/homeLayoutScript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body style="background-color:black">
     @*Header và các menu link chính của website*@
@@ -101,7 +102,7 @@
 
     <div class="div-footer">
         <div class="media ">
-            <div class="media_cd" style="background-image: url(http://tienganhonline.com/wp-content/uploads/2019/04/faded-678x381.jpg)">
+            <div class="media_cd" id="media-cd" style="background-image: url(http://tienganhonline.com/wp-content/uploads/2019/04/faded-678x381.jpg)">
                 <!-- <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/1/b/9/a/1b9a056a527b7c7409e890a48bb7fac6.jpg"> -->
             </div>
             <div class="media_title">
@@ -111,7 +112,7 @@
             <div class="media_icon">
                 <ul>
                     <li class="meadia_icon_more heart">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart" onclick="onLike()"></i>
                         <i class="far fa-heart"></i>
                     </li>
                     <li class="meadia_icon_more">
@@ -120,8 +121,7 @@
                 </ul>
             </div>
         </div>
-
-        <div class="controls ">
+        <div class="controls">
             <ul class="controls_player">
                 <li class="controls_player--icon">
                     <i class="fas fa-random"></i>
@@ -130,8 +130,8 @@
                     <i class="fas fa-step-backward"></i>
                 </li>
                 <li class="controls_player--icon">
-                    <i class="far fa-play-circle"></i>
-                    <i class="far fa-pause-circle"></i>
+                    <i class="far fa-play-circle" id="playBtn-control" onclick="clickPlayorPause()"></i>
+                    <i class="far fa-pause-circle"id="pauseBtn-control" onclick="clickPlayorPause()"></i>
                 </li>
                 <li class="controls_player--icon">
                     <i class="fas fa-step-forward"></i>

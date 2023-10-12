@@ -1,24 +1,42 @@
-﻿/*xử lí sự kiện dừng và phát nhạc*/
-var playBtn = document.getElementById("play");
-var audio = document.getElementById("audio-control");
-var pauseBtn = document.getElementById("stop")
-var checkPlay;
-var playAudio = function () {
+﻿//Bắt sự kiện click vào nút tim;
+
+
+
+var isPlay = false;
+var playerBtn = document.getElementById("playBtn-control");
+var pauseBtn = document.getElementById("pauseBtn-control");
+// xử lý cd quay khi phát nhạc
+var media_cd = document.getElementById("media-cd");
+var media_cd_Animate = media_cd.animate([
+    { transform: "rotate(360deg)" },
+], {
+    duration: 10000,
+    iterations: Infinity,
+},)
+media_cd_Animate.pause();
+//Nhấn vào nút phát nhạc
+function playSong() {
+    isPlay = true;
     audio.play();
-    checkPlay = true;
-};
-var pauseAudio = function () {
-    audio.pause();
-    checkPlay = false;
+    playerBtn.classList.add("d-none");
+    pauseBtn.classList.add("d-block");
+    media_cd_Animate.play();
 }
-playBtn.addEventListener("click", playAudio, false);
-pauseBtn.addEventListener("click", pauseAudio, false)
-/*xử lí sự kiện kéo thả thanh control-time và currentTime durranTime*/
-/*let time = document.getElementById("playback-position");
-let curr=audio.currentTime
-audio.ontimeupdate = function () { myFunction() };
-audio.ontimeupdate = function () {myFunction()}
-function myFunction()
-{
-    time.innerHTML(curr);
-}*/
+// Pause song
+function pauseSong() {
+    isPlay = false;
+    audio.pause();
+    playerBtn.classList.remove("d-none");
+    pauseBtn.classList.remove("d-block");
+    media_cd_Animate.pause();
+    
+}
+clickPlayorPause = function () {
+    if (!isPlay) {
+        playSong();
+    } else {
+        pauseSong();
+    }
+}
+//Map thanh scroll vào trong audio
+    

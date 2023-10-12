@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_WebNgheNhacModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="img">
+    <Key>
+      <PropertyRef Name="ID_img" />
+    </Key>
+    <Property Name="ID_img" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Name_img" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mixtape">
+    <Key>
+      <PropertyRef Name="ID_mixtape" />
+    </Key>
+    <Property Name="Name_mixtape" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_mixtape" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_Music" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_img" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Music">
+    <Key>
+      <PropertyRef Name="ID_Music" />
+    </Key>
+    <Property Name="ID_Music" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Name_music" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Catergory" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Release_Date" Type="date" Nullable="false" />
+    <Property Name="ID_img" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_Singer" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Singer">
+    <Key>
+      <PropertyRef Name="ID_Singer" />
+    </Key>
+    <Property Name="ID_Singer" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Name_singer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Story" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="View_moth" Type="int" Nullable="false" />
+    <Property Name="ID_img" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Permission" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Mixtape__ID_img__4316F928">
+    <End Role="img" Type="Self.img" Multiplicity="1" />
+    <End Role="Mixtape" Type="Self.Mixtape" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="img">
+        <PropertyRef Name="ID_img" />
+      </Principal>
+      <Dependent Role="Mixtape">
+        <PropertyRef Name="ID_img" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mixtape__ID_Musi__4222D4EF">
+    <End Role="Music" Type="Self.Music" Multiplicity="1" />
+    <End Role="Mixtape" Type="Self.Mixtape" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Music">
+        <PropertyRef Name="ID_Music" />
+      </Principal>
+      <Dependent Role="Mixtape">
+        <PropertyRef Name="ID_Music" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Music__ID_img__3E52440B">
+    <End Role="img" Type="Self.img" Multiplicity="1" />
+    <End Role="Music" Type="Self.Music" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="img">
+        <PropertyRef Name="ID_img" />
+      </Principal>
+      <Dependent Role="Music">
+        <PropertyRef Name="ID_img" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Music__ID_Singer__3F466844">
+    <End Role="Singer" Type="Self.Singer" Multiplicity="1" />
+    <End Role="Music" Type="Self.Music" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Singer">
+        <PropertyRef Name="ID_Singer" />
+      </Principal>
+      <Dependent Role="Music">
+        <PropertyRef Name="ID_Singer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Singer__ID_img__3B75D760">
+    <End Role="img" Type="Self.img" Multiplicity="1" />
+    <End Role="Singer" Type="Self.Singer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="img">
+        <PropertyRef Name="ID_img" />
+      </Principal>
+      <Dependent Role="Singer">
+        <PropertyRef Name="ID_img" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QL_WebNgheNhacModelStoreContainer">
+    <EntitySet Name="img" EntityType="Self.img" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mixtape" EntityType="Self.Mixtape" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Music" EntityType="Self.Music" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Singer" EntityType="Self.Singer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_table" EntityType="Self.User_table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Mixtape__ID_img__4316F928" Association="Self.FK__Mixtape__ID_img__4316F928">
+      <End Role="img" EntitySet="img" />
+      <End Role="Mixtape" EntitySet="Mixtape" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mixtape__ID_Musi__4222D4EF" Association="Self.FK__Mixtape__ID_Musi__4222D4EF">
+      <End Role="Music" EntitySet="Music" />
+      <End Role="Mixtape" EntitySet="Mixtape" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Music__ID_img__3E52440B" Association="Self.FK__Music__ID_img__3E52440B">
+      <End Role="img" EntitySet="img" />
+      <End Role="Music" EntitySet="Music" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Music__ID_Singer__3F466844" Association="Self.FK__Music__ID_Singer__3F466844">
+      <End Role="Singer" EntitySet="Singer" />
+      <End Role="Music" EntitySet="Music" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Singer__ID_img__3B75D760" Association="Self.FK__Singer__ID_img__3B75D760">
+      <End Role="img" EntitySet="img" />
+      <End Role="Singer" EntitySet="Singer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

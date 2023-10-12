@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_WebNgheNhacModelStoreContainer" CdmEntityContainer="QL_WebNgheNhacEntities">
+    <EntitySetMapping Name="imgs">
+      <EntityTypeMapping TypeName="QL_WebNgheNhacModel.img">
+        <MappingFragment StoreEntitySet="img">
+          <ScalarProperty Name="ID_img" ColumnName="ID_img" />
+          <ScalarProperty Name="Name_img" ColumnName="Name_img" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mixtapes">
+      <EntityTypeMapping TypeName="QL_WebNgheNhacModel.Mixtape">
+        <MappingFragment StoreEntitySet="Mixtape">
+          <ScalarProperty Name="Name_mixtape" ColumnName="Name_mixtape" />
+          <ScalarProperty Name="ID_mixtape" ColumnName="ID_mixtape" />
+          <ScalarProperty Name="ID_Music" ColumnName="ID_Music" />
+          <ScalarProperty Name="ID_img" ColumnName="ID_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musics">
+      <EntityTypeMapping TypeName="QL_WebNgheNhacModel.Music">
+        <MappingFragment StoreEntitySet="Music">
+          <ScalarProperty Name="ID_Music" ColumnName="ID_Music" />
+          <ScalarProperty Name="Name_music" ColumnName="Name_music" />
+          <ScalarProperty Name="Catergory" ColumnName="Catergory" />
+          <ScalarProperty Name="Release_Date" ColumnName="Release_Date" />
+          <ScalarProperty Name="ID_img" ColumnName="ID_img" />
+          <ScalarProperty Name="ID_Singer" ColumnName="ID_Singer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Singers">
+      <EntityTypeMapping TypeName="QL_WebNgheNhacModel.Singer">
+        <MappingFragment StoreEntitySet="Singer">
+          <ScalarProperty Name="ID_Singer" ColumnName="ID_Singer" />
+          <ScalarProperty Name="Name_singer" ColumnName="Name_singer" />
+          <ScalarProperty Name="Story" ColumnName="Story" />
+          <ScalarProperty Name="View_moth" ColumnName="View_moth" />
+          <ScalarProperty Name="ID_img" ColumnName="ID_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_table">
+      <EntityTypeMapping TypeName="QL_WebNgheNhacModel.User_table">
+        <MappingFragment StoreEntitySet="User_table">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

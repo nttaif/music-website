@@ -231,7 +231,7 @@
         height: 15rem;
     }
 /*nội dung chính hiển thị cho người dùng*/
-.div-content .content-oop p {
+.div-content .content-oop h4 {
     margin: 10px;
     font-size: 30px;
     font-weight: 700;
@@ -336,6 +336,58 @@
         
 /*End dành cho bạn*/
 
+
+/*Đề xuất hôm nay*/
+/*Dành cho bạn*/
+.recommend-music--dailyday {
+    width: 100%;
+    color: whitesmoke;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+    .recommend-music--dailyday .container-fluid {
+    }
+
+    .recommend-music--dailyday .recommend-music--items {
+        background-image: url("https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645.jpg");
+        width: 250px;
+        height: 200px;
+        color: #f6f1f5;
+        border-radius: 20px;
+        justify-content: space-evenly;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 30px;
+        position: static;
+    }
+
+    .recommend-music--dailyday .recommend-music-icons {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .recommend-music--dailyday .recommend-music--items:hover {
+        /*cursor: pointer;*/
+        /*trỏ chuột vào nó hiện bàn tay*/
+        text-decoration: none;
+        transform: translateX(5px);
+        /*dịch chuyển vật thể theo chiều x y z*/
+        transition-duration: 1s;
+    }
+
+    .recommend-music--dailyday .recommend-music-icons .controls_player--icon_img {
+        font-size: 25px;
+    }
+
+    .recommend-music--dailyday .recommend-music-icons div:nth-child(n) {
+        font-size: 50px;
+        color: palegreen;
+    }
+        
+/*End đề xuất hôm nay*/
 
 /*layout footer của trang web*/
 .div-footer {

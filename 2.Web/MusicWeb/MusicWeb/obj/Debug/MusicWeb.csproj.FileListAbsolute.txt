@@ -393,3 +393,7 @@ D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\
 D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\obj\Debug\MusicWeb.csproj.CopyComplete
 D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\obj\Debug\MusicWeb.dll
 D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\obj\Debug\MusicWeb.pdb
+D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\bin\EntityFramework.dll
+D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\bin\EntityFramework.SqlServer.dll
+D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\bin\EntityFramework.xml
+D:\HUFLIT-2023\Music-Website-DACK1\source\music-website\2.Web\MusicWeb\MusicWeb\bin\EntityFramework.SqlServer.xml
