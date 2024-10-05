@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MusicWeb.Models.LibraryModel>
+
+@{
+    ViewBag.Title = "Library";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QUẢN LÝ THƯ VIỆN</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Library)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adminUser.NameUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.song.Name_Song)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.song.Audio_Song)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.song.ImageSong)
+        </th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_Library)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adminUser.NameUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.song.Name_Song)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Audio_Song)*@
+                <audio controls>
+                    <source src="@Url.Content(item.song.Audio_Song)">
+                </audio>
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.ImageSong)*@
+                <img src="@Url.Content(item.song.ImageSong)" alt="Avatar" style="width:150px;height:150px;">
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "LibraryDelete", new { id = item.ID_Library }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

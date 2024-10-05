@@ -1,328 +1,184 @@
-﻿@{
+﻿@model IEnumerable<MusicWeb.Models.Song>
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_homeLayout.cshtml";
 }
-
-@*<div class="d-flex flex-wrap">
-        @for (int i = 0; i < 30; i++)
-        {
-            <div class="card m-3 justify-content-center" style="width: 15rem;height:15rem">
-                <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-            </div>
-        }
-    </div>*@
-
 <style>
     /*//code css*/
 </style>
 <h4>Chào buổi <b>tối: </b></h4>
-<div class="history-mix">
-    <a class="card-history-mixtape">
-        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-        <h5>Mixtape 1</h5>
-    </a>
-    <a class="card-history-mixtape">
-        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-        <h5>Mixtape 2</h5>
-    </a>
-    <a class="card-history-mixtape">
-        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-        <h5>Mixtape 3</h5>
-    </a>
-    <a class="card-history-mixtape">
-        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-        <h5>Mixtape 4</h5>
-    </a>
-    <a class="card-history-mixtape">
-        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-        <h5>Mixtape 5</h5>
-    </a>
-    <a class="card-history-mixtape">
-        <img src="~/Content/images/faded.jpg" class="p-2 card-img-top" alt="...">
-        <h5>Mixtape 6</h5>
-    </a>
-</div>
+<section id="slide-show-img-home">
+    <input type="radio" name="slider" class="slider-input" id="slide1" checked />
+    <input type="radio" name="slider" class="slider-input" id="slide2" />
+    <input type="radio" name="slider" class="slider-input" id="slide3" />
+    <label for="s1" id="slide1">
+        <img src="~/Content/images/Không Thể Say.jpg" />
+    </label>
+    <label for="s2" id="slide2">
+        <img src="~/Content/images/Muonroimasaocon.jpg" />
+    </label>
+    <label for="s3" id="slide3">
+        <img src="~/Content/images/Baby.jpg" />
+    </label>
+</section>
+@*<button class="btn-skip-img" onclick="changeSlide('prev')">
+        <svg class="btn-prev" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
+    </button>
+    <button class="btn-skip-img" onclick="changeSlide('next')">
+        <svg class="btn-next" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" /></svg>
+    </button>*@
+<script>
+    var currentSlide = 1;
+    var interval;
 
+    function changeSlide(direction) {
+        if (direction === 'next') {
+            currentSlide = (currentSlide % 3) + 1;
+        }
 
-<h4>Dành cho bạn: </h4>
+        else if (direction === 'prev') {
+            currentSlide = (currentSlide - 2 + 3) % 3 + 1;
+        }
+        var radio = document.getElementById('slide' + currentSlide);
+        radio.checked = true;
+    }
+    function autoChangeSlide() {
+        interval = setInterval(function () {
+            changeSlide('next');
+        }, 6000);
+    }
+
+    function stopAutoChangeSlide() {
+        clearInterval(interval);
+    }
+    autoChangeSlide();
+</script>
+
+<h4 style="bottom: 180px; position: relative;">POP: </h4>
 <div class="recommend-music">
     <div class="container-fluid text-center">
-        <div class="d-flex flex-row mb-3">
-
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
+        <div class="row-in-row" style="display: flex;flex-wrap:wrap;">
+            @foreach (var item in Model)
+            {
+                if (item.ID_Catergory == 1)
+                {
+                    <div class="col-list-music--item" style="margin-top:20px;padding-left:15px">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="@Url.Content(item.ImageSong)" alt="Avatar" style="width:200px;height:200px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="recommend-music-icons">
+                                        <div class="controls_player--icon_img">
+                                            @if (item.IsLiked == false)
+                                            {
+                                                <button title="Thêm vào yêu thích" onclick="toggleLike(this,@item.ID_Song,@Session["ID"])" id="btnmusic" class="btn-like-music"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="white"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg></button>
+                                            }
+                                            else
+                                            {
+                                                <button title="Thêm vào yêu thích" onclick="toggleLike(this,@item.ID_Song,@Session["ID"])" id="btnmusic" class="btn-like-music liked"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="white"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg></button>
+                                            }
+                                            <i class="far fa-play-circle" onclick="changeAudioSource('@Html.Raw(item.Audio_Song)','@Html.Raw(item.Name_Song)','@Html.Raw(item.Name_singer)','@Html.Raw(item.ImageSong)',@Html.Raw(item.ID_Song))"></i>
+                                            <i class="fa-solid fa-ellipsis" onclick="onLike()"></i>
+                                            <i class="far fa-pause-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="recommend-music-items--info">
+                                        <h5>@item.Name_Song</h5>
+                                        @using (Html.BeginForm("DetailSinger","Home", FormMethod.Post))
+                                        {
+                                            <button type="submit" style="background:transparent;border:none; outline:none; color:white" value="@item.ID_Singer" name="id"><span>@item.Name_singer</span></button>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
+                }
+            }
         </div>
     </div>
-</div>
-<h4>Được đề xuất hôm nay:</h4>
-<div class="recommend-music--dailyday">
+    <h4>Rap:</h4>
     <div class="container-fluid text-center">
-        <div class="d-flex flex-row mb-3">
-
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
+        <div class="row-in-row" style="display: flex;flex-wrap:wrap;">
+            @foreach (var item in Model)
+            {
+                if (item.ID_Catergory == 2)
+                {
+                    <div class="col-list-music--item" style="margin-top:20px;padding-left:15px">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="@Url.Content(item.ImageSong)" alt="Avatar" style="width:200px;height:200px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="recommend-music-icons">
+                                        <div class="controls_player--icon_img">
+                                            @if (item.IsLiked == false)
+                                            {
+                                                <button title="Thêm vào yêu thích" onclick="toggleLike(this,@item.ID_Song,@Session["ID"])" id="btnmusic" class="btn-like-music"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="white"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg></button>
+                                            }
+                                            else
+                                            {
+                                                <button title="Thêm vào yêu thích" onclick="toggleLike(this,@item.ID_Song,@Session["ID"])" id="btnmusic" class="btn-like-music liked"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="white"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg></button>
+                                            }
+                                            <i class="far fa-play-circle" onclick="changeAudioSource('@Html.Raw(item.Audio_Song)','@Html.Raw(item.Name_Song)','@Html.Raw(item.Name_singer)','@Html.Raw(item.ImageSong)',@Html.Raw(item.ID_Song))"></i>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                            <!-- <i class="far fa-pause-circle"></i> -->
+                                        </div>
+                                    </div>
+                                    <div class="recommend-music-items--info">
+                                        <h5>@item.Name_Song</h5>
+                                        <span>@item.Name_singer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
+                }
+            }
         </div>
     </div>
-</div>
 
-<h4>Dành cho bạn: </h4>
-<div class="recommend-music">
+    <h4>Melody: </h4>
     <div class="container-fluid text-center">
-        <div class="d-flex flex-row mb-3">
-
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
+        <div class="row-in-row" style="display:flex;flex-wrap:wrap;">
+            @foreach (var item in Model)
+            {
+                if (item.ID_Catergory == 3)
+                {
+                    <div class="col-list-music--item" style="margin-top:20px;padding-left:15px">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="@Url.Content(item.ImageSong)" alt="Avatar" style="width:200px;height:200px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="recommend-music-icons">
+                                        <div class="controls_player--icon_img">
+                                            @if (item.IsLiked == false)
+                                            {
+                                                <button title="Thêm vào yêu thích" onclick="toggleLike(this,@item.ID_Song,@Session["ID"])" id="btnmusic" class="btn-like-music"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="white"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg></button>
+                                            }
+                                            else
+                                            {
+                                                <button title="Thêm vào yêu thích" onclick="toggleLike(this,@item.ID_Song,@Session["ID"])" id="btnmusic" class="btn-like-music liked"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="white"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg></button>
+                                            }
+                                            <i class="far fa-play-circle" onclick="changeAudioSource('@Html.Raw(item.Audio_Song)','@Html.Raw(item.Name_Song)','@Html.Raw(item.Name_singer)','@Html.Raw(item.ImageSong)',@Html.Raw(item.ID_Song))"></i>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </div>
+                                    </div>
+                                    <div class="recommend-music-items--info">
+                                        <h5>@item.Name_Song</h5>
+                                        <span>@item.Name_singer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
-            <div class="p-2 recommend-music--items">
-                <div class="recommend-music-icons">
-                    <div class="controls_player--icon_img">
-                        <i class="far fa-play-circle"></i>
-                        <!-- <i class="far fa-pause-circle"></i> -->
-                    </div>
-                </div>
-                <div class="recommend-music-items--info">
-                    <h5>Live from Paris</h5>
-                    <span>Justin Bieber</span>
-                </div>
-            </div>
+                }
+            }
         </div>
     </div>
 </div>
-
-@*xử lí nhạc*@
-<audio id="audio" src="~/Content/music/Alan-Walker-Faded-Faded.mp3">
-    <source src="~/Content/music/Alan-Walker-Faded-Faded.mp3" type="audio/mpeg" />
-</audio>

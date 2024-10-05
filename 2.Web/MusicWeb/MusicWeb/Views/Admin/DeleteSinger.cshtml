@@ -1,0 +1,69 @@
+﻿@model MusicWeb.Models.Singer
+
+@{
+    ViewBag.Title = "DeleteSinger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XOÁ CA SĨ</h2>
+
+<h3>Bạn có chắc chắn rằng xoá ca sĩ này?</h3>
+@using (Html.BeginForm("DeleteSinger","Admin",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_Singer)
+                @Html.HiddenFor(model => model.ID_Singer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_Singer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name_singer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name_singer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Story)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Story)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.View_moth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.View_moth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageSinger)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.ImageSinger)" height="200" width="200" id="previewImage" />
+
+            </dd>
+
+        </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+}
+

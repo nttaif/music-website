@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44354</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -129,11 +130,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\CommonConnection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminUserModel.cs" />
+    <Compile Include="Models\Catergory.cs" />
+    <Compile Include="Models\LibraryModel.cs" />
+    <Compile Include="Models\Singer.cs" />
+    <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\SongViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,15 +162,152 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Discover.css" />
     <Content Include="Content\homeStylesheet.css" />
+    <Content Include="Content\images\a m a r ijpg.jpg" />
+    <Content Include="Content\images\alanwalker.jpg" />
+    <Content Include="Content\images\Baby.jpg" />
+    <Content Include="Content\images\Better Nowjpg.jpg" />
+    <Content Include="Content\images\bigbang.jpg" />
+    <Content Include="Content\images\bigdaddy.jpg" />
+    <Content Include="Content\images\blue.jpg" />
+    <Content Include="Content\images\bray.jpg" />
+    <Content Include="Content\images\Caooc20.jpg" />
+    <Content Include="Content\images\CatDoiNoiSau.jpg" />
+    <Content Include="Content\images\chilles.jpg" />
+    <Content Include="Content\images\choi-nhu-tui-my.jpg" />
+    <Content Include="Content\images\chua-phai-la-yeu.jpg" />
+    <Content Include="Content\images\Chơi Như Tụi Mỹ.jpg" />
+    <Content Include="Content\images\Chưa phải là yêu.jpg" />
+    <Content Include="Content\images\Cupid - Twin Ver.jpg" />
+    <Content Include="Content\images\Dangerously.jpg" />
+    <Content Include="Content\images\deja vu.jpg" />
+    <Content Include="Content\images\Duaemvenha.jpg" />
+    <Content Include="Content\images\exhateme.jpg" />
     <Content Include="Content\images\Facebook_Logo_%282019%29.png.png" />
     <Content Include="Content\images\faded-678x381.jpg" />
     <Content Include="Content\images\faded.jpg" />
+    <Content Include="Content\images\flowerjisoo.jpg" />
+    <Content Include="Content\images\freaky.jpg" />
     <Content Include="Content\images\gg.png" />
+    <Content Include="Content\images\gods.jpg" />
+    <Content Include="Content\images\golden hour.jpg" />
+    <Content Include="Content\images\haruharu.jpg" />
+    <Content Include="Content\images\hieuthuhai.jpg" />
+    <Content Include="Content\images\hinh-anh-nhung-cau-noi-hay-ve-cuoc-song-32.jpg" />
+    <Content Include="Content\images\images.jpg" />
+    <Content Include="Content\images\jisoo.jpg" />
+    <Content Include="Content\images\jungkook.jpg" />
+    <Content Include="Content\images\Khongthesay.jpg" />
+    <Content Include="Content\images\Không Thể Say.jpg" />
     <Content Include="Content\images\logoHuflit.png" />
-    <Content Include="Content\music\Alan-Walker-Faded-Faded.mp3" />
+    <Content Include="Content\images\Look At Me!.jpg" />
+    <Content Include="Content\images\Map.jpg" />
+    <Content Include="Content\images\maroon5.jpg" />
+    <Content Include="Content\images\Muonquenduocem.jpg" />
+    <Content Include="Content\images\Muonroimasaocon.jpg" />
+    <Content Include="Content\images\nal.jpg" />
+    <Content Include="Content\images\Nangtho.jpg" />
+    <Content Include="Content\images\Ngocham.jpg" />
+    <Content Include="Content\images\Night Changes.jpg" />
+    <Content Include="Content\images\Nụ hôn Bisou.jpg" />
+    <Content Include="Content\images\OIP.jpg" />
+    <Content Include="Content\images\onedirection.jpg" />
+    <Content Include="Content\images\Perfect.jpg" />
+    <Content Include="Content\images\Perfect1.jpg" />
+    <Content Include="Content\images\qnt.jpg" />
+    <Content Include="Content\images\R.jpg" />
+    <Content Include="Content\images\Roitoiluon.jpg" />
+    <Content Include="Content\images\Sayem.jpg" />
+    <Content Include="Content\images\seeyouagain.jpg" />
+    <Content Include="Content\images\Set Fire to the Rain.jpg" />
+    <Content Include="Content\images\seven.jpg" />
+    <Content Include="Content\images\shayneward.jpg" />
+    <Content Include="Content\images\slide-hello.jpg" />
+    <Content Include="Content\images\sontung.jpg" />
+    <Content Include="Content\images\stan.jpg" />
+    <Content Include="Content\images\stilllife.jpg" />
+    <Content Include="Content\images\tangduytan.jpg" />
+    <Content Include="Content\images\testimage.jpg" />
+    <Content Include="Content\images\The Night.jpg" />
+    <Content Include="Content\images\untilyou.jpg" />
+    <Content Include="Content\images\Waiting For Love.jpg" />
+    <Content Include="Content\images\whatmakeyoubeautiful.jpg" />
+    <Content Include="Content\images\wizkhalifa.jpg" />
+    <Content Include="Content\images\You Set My World On Firejpg.jpg" />
+    <Content Include="Content\layoutStyleSheet.css" />
+    <Content Include="Content\LibraryStyleSheet1.css" />
+    <Content Include="Content\music\a-ma-ri.mp3" />
+    <Content Include="Content\music\Addicted-to-you.mp3" />
+    <Content Include="Content\music\baby.mp3" />
+    <Content Include="Content\music\Batnhaclen.mp3" />
+    <Content Include="Content\music\Better-now.mp3" />
+    <Content Include="Content\music\Blue.mp3" />
+    <Content Include="Content\music\cao-oc-20.mp3" />
+    <Content Include="Content\music\cat-doi-noi-sau.mp3" />
+    <Content Include="Content\music\Changes.mp3" />
+    <Content Include="Content\music\Cheating-on-you.mp3" />
+    <Content Include="Content\music\choi-nhu-tui-my.mp3" />
+    <Content Include="Content\music\chua-phai-la-yeu.mp3" />
+    <Content Include="Content\music\Chungtacuahientai.mp3" />
+    <Content Include="Content\music\cupid.mp3" />
+    <Content Include="Content\music\dangerously.mp3" />
+    <Content Include="Content\music\deja-vu.mp3" />
+    <Content Include="Content\music\Doforlove.mp3" />
+    <Content Include="Content\music\Du-trai-se-tham.mp3" />
+    <Content Include="Content\music\dua-em-ve-nha.mp3" />
+    <Content Include="Content\music\Em-iu.mp3" />
+    <Content Include="Content\music\Emcuangayhomqua.mp3" />
+    <Content Include="Content\music\faded.mp3" />
+    <Content Include="Content\music\flower.mp3" />
+    <Content Include="Content\music\Girlslikeyou.mp3" />
+    <Content Include="Content\music\haru-haru.mp3" />
+    <Content Include="Content\music\Haytraochoanh.mp3" />
+    <Content Include="Content\music\Henemduoianhtrang.mp3" />
+    <Content Include="Content\music\khong-the-say.mp3" />
+    <Content Include="Content\music\LacTroi.mp3" />
+    <Content Include="Content\music\Left-and-right.mp3" />
+    <Content Include="Content\music\look-at-me.mp3" />
+    <Content Include="Content\music\Lunglo.mp3" />
+    <Content Include="Content\music\map.mp3" />
+    <Content Include="Content\music\Motcaiten.mp3" />
+    <Content Include="Content\music\muon-quen-duoc-em.mp3" />
+    <Content Include="Content\music\muon-roi-ma-sao-con.mp3" />
+    <Content Include="Content\music\ngo-cham.mp3" />
+    <Content Include="Content\music\Ngumotminh.mp3" />
+    <Content Include="Content\music\Nhac-anh.mp3" />
+    <Content Include="Content\music\night-changes.mp3" />
+    <Content Include="Content\music\nu-hon-bisou.mp3" />
+    <Content Include="Content\music\On-my-way.mp3" />
+    <Content Include="Content\music\Onething.mp3" />
+    <Content Include="Content\music\Perfect%281%29.mp3" />
+    <Content Include="Content\music\perfect.mp3" />
+    <Content Include="Content\music\Quakhungcuaso.mp3" />
+    <Content Include="Content\music\Querry.mp3" />
+    <Content Include="Content\music\roi-toi-luon.mp3" />
+    <Content Include="Content\music\Roinangcaily.mp3" />
+    <Content Include="Content\music\say-em.mp3" />
+    <Content Include="Content\music\see-you-again.mp3" />
+    <Content Include="Content\music\Set-fire-to-the-rain.mp3" />
+    <Content Include="Content\music\seven.mp3" />
+    <Content Include="Content\music\Spectre.mp3" />
+    <Content Include="Content\music\stan.mp3" />
+    <Content Include="Content\music\still-life.mp3" />
+    <Content Include="Content\music\Storyofmylife.mp3" />
+    <Content Include="Content\music\Sugar.mp3" />
+    <Content Include="Content\music\the-nights.mp3" />
+    <Content Include="Content\music\Thucdaydi.mp3" />
+    <Content Include="Content\music\until-you.mp3" />
+    <Content Include="Content\music\Vungkyuc.mp3" />
+    <Content Include="Content\music\waiting-for-love.mp3" />
+    <Content Include="Content\music\Wake-me-up.mp3" />
+    <Content Include="Content\music\what-make-you-beautiful.mp3" />
+    <Content Include="Content\music\xin-dung-nhat-may.mp3" />
+    <Content Include="Content\music\Xin.mp3" />
+    <Content Include="Content\music\you-set-my-world-on-fire.mp3" />
     <Content Include="Content\signupStylesheet.css" />
     <Content Include="Content\LoginSheet.css" />
+    <Content Include="Content\_LayouStyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -178,11 +324,13 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\JQuery.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\_layoutJavaScript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -201,11 +349,26 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_SignUp_LayoutPage.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
-    <Content Include="Views\Home\DetailMusic.cshtml" />
+    <Content Include="Views\Home\DetailSinger.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\TestLayout.cshtml" />
+    <Content Include="Views\Admin\CreateAdminUser.cshtml" />
+    <Content Include="Views\Admin\EditAdminUser.cshtml" />
+    <Content Include="Views\Admin\DeleteAdminUser.cshtml" />
+    <Content Include="Views\Admin\Song.cshtml" />
+    <Content Include="Views\Admin\AddSong.cshtml" />
+    <Content Include="Views\Admin\Singer.cshtml" />
+    <Content Include="Views\Admin\AddSinger.cshtml" />
+    <Content Include="Views\Home\Library.cshtml" />
+    <Content Include="Views\Admin\EditSong.cshtml" />
+    <Content Include="Views\Admin\DeleteSong.cshtml" />
+    <Content Include="Views\Admin\EditSinger.cshtml" />
+    <Content Include="Views\Admin\DeleteSinger.cshtml" />
+    <Content Include="Views\Admin\Library.cshtml" />
+    <Content Include="Views\Admin\LibraryDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

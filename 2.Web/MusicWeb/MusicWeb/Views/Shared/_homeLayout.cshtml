@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/homeStylesheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -10,6 +9,7 @@
     <script src="~/Scripts/bootstrap.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/LibraryStyleSheet1.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/2c4590e3d7.js" crossorigin="anonymous"></script>
     <script src="~/Scripts/homeLayoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,8 +20,8 @@
         <nav class="navbar navbar-brand">
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand" href="#">
-                    @*<img src="~/Content/images/logoHuflit.png" />*@
-                    <span>HUFLIT</span>
+                    <img src="~/Content/images/logo.png" width="130" height="100" />
+                    <span>NATURE MUSIC</span>
                 </a>
             </div>
         </nav>
@@ -44,7 +44,7 @@
                 </a>
             </div>
             <div class="p-2">
-                <a href="#" class="nav-link active">
+                <a href="/Home/Library" class="nav-link active">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
                         <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
                         <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z" />
@@ -53,70 +53,119 @@
                 </a>
             </div>
         </div>
-        @*Các danh bài hát và playlist đã lưu*@
+        <ul class="list-group" id="nav-lib-mussic">
+            <li><h4><b>Danh sách các bài hát đề xuất:</b></h4></li>
 
-        <ul class="list-group">
-            <li><h4><b>Danh sách các playlist đã lưu:</b></h4></li>
-            @for (int i = 0; i < 10; i++)
-            {
-                <li class="list-group-item">
-                    <a href="#" class="nav-link">
-                        <img src="~/Content/images/faded.jpg" width="50" height="50">
-                        <marquee direction="right" width="20%">
-                            <b>Faded</b>
-                        </marquee>
-                        <span>Alan Walker</span>
-                    </a>
-                </li>
-            }
         </ul>
-
     </div>
-
-
-
     <div class="div-content">
         <header class="header-content">
             <div class="container_header--content">
-                <span class="container_header--content_btns">
-                    <button class="container_header--content_btn ">
-                        <i class="fas fa-arrow-left"></i>
+                <div style="display:flex" class="dropdown">
+                    <button type="button" title="username" class="dropbtn" onclick="toggleMenu()">
+                        <svg class="avatar-profile" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="white" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" /></svg>
                     </button>
-                    <button class="container_header--content_btn ">
-                        <i class="fas fa-arrow-right"></i>
+                    <div class="sub-menu-all" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                @if (Session["ID"] != null)
+                                {
+                                    <h4 style="color:white">@Session["username"]</h4>
+                                }
+                            </div>
+                            <hr style="color: #969595" />
+                            @if (Session["ID"] != null)
+                            {
+
+                                if (Session["RoleUser"].ToString() == "admin")
+                                {
+                                    <a href="/Admin/Index" class="sub-menu-link">
+                                        <img alt="#" src="~/Content/images/profile.png" height="40" width="40" />
+                                        <p style="margin-top:15px">Change to Admin</p>
+                                    </a>
+                                }
+                            }
+                            <a href="#" class="sub-menu-link" onclick="commingSoon()">
+                                <img alt="#" src="~/Content/images/profile.png" height="40" width="40" />
+                                <p style="margin-top:15px">Profile</p>
+                            </a>
+                            <a class="sub-menu-link" onclick="commingSoon()">
+                                <img alt="#" src="~/Content/images/setting.png" height="40" width="40" />
+                                <p style="margin-top:15px">Setting</p>
+                                <hr />
+                            </a>
+                            @if (Session["ID"] != null)
+                            {
+                                <a href="/Account/Login" class="sub-menu-link" id="outBtn">
+                                    <img alt="#" src="~/Content/images/logout.png" height="40" width="40" />
+                                    <p style="margin-top:15px">Log out</p>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Account/Login" class="sub-menu-link" id="outBtn">
+                                    <img alt="#" src="~/Content/images/logout.png" height="40" width="40" />
+                                    <p style="margin-top:15px">Login</p>
+                                </a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <span class="container_header--content_btns">
+                    <button class="container_header--content_btn" onclick="goBack() ">
+                        <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF" fill="white" viewBox="0 0 16 16"><path d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path></svg>
+                    </button>
+                    <button class="container_header--content_btn " onclick="goForward()">
+                        <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF" fill="white" viewBox="0 0 16 16"><path d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"></path></svg>
                     </button>
                 </span>
-                <div class="container_header--content_search">
-                    <i class="hidden_on fas container_header--content_search--icon fa-search"></i>
-                    <input class="content_search_history" type="search" placeholder="Nhập tên bài hát, Nghệ sĩ hoặc MV...">
-                </div>
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+
+                    function goForward() {
+                        window.history.forward();
+                    }
+                </script>
+                @using (Html.BeginForm("Discover", "Home", FormMethod.Post))
+                {
+                    <div class="container_header--content_search">
+                        <button><i class="hidden_on fas container_header--content_search--icon fa-search"></i></button>
+                        <input autocorrect="off" autocapitalize="off" class="content_search_history" type="search" name="_seacrchName" placeholder="Nhập tên bài hát, Nghệ sĩ hoặc MV...">
+                    </div>
+                }
+
             </div>
-            
         </header>
+
         <div class="content-oop">
             @RenderBody()
+            @*xử lí nhạc*@
+            <audio id="audio">
+                <source id="srcAudio" src="Content/music/chua-phai-la-yeu.mp3" type="audio/mpeg" />
+            </audio>
         </div>
-
     </div>
 
 
     <div class="div-footer">
         <div class="media ">
-            <div class="media_cd" id="media-cd" style="background-image: url(http://tienganhonline.com/wp-content/uploads/2019/04/faded-678x381.jpg)">
-                <!-- <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/1/b/9/a/1b9a056a527b7c7409e890a48bb7fac6.jpg"> -->
+            <div class="media_cd" id="media-cd">
+                <img id="imgMedia" src="~/Content/images/chua-phai-la-yeu.jpg" />
             </div>
             <div class="media_title">
-                <marquee class="media_title--name" scrolldelay="130">Faded</marquee>
-                <a class="media_title--author">Alan Walker</a>
+                <marquee id="nameSong" class="media_title--name" scrolldelay="150">Chưa phải là yêu</marquee>
+                <a id="nameSinger" class="media_title--author">HURRYKNG</a>
             </div>
             <div class="media_icon">
                 <ul>
                     <li class="meadia_icon_more heart">
-                        <i class="fas fa-heart" onclick="onLike()"></i>
-                        <i class="far fa-heart"></i>
+                        <i class="far fa-heart" onclick="commingSoon()"></i>
                     </li>
                     <li class="meadia_icon_more">
-                        <i class="fas fa-ellipsis-h"></i>
+                        <i class="fas fa-ellipsis-h" onclick="commingSoon()"></i>
                     </li>
                 </ul>
             </div>
@@ -124,26 +173,26 @@
         <div class="controls">
             <ul class="controls_player">
                 <li class="controls_player--icon">
-                    <i class="fas fa-random"></i>
+                    <i class="fas fa-random" onclick="commingSoon()"></i>
                 </li>
                 <li class="controls_player--icon">
-                    <i class="fas fa-step-backward"></i>
+                    <i class="fas fa-step-backward" onclick="commingSoon()"></i>
                 </li>
                 <li class="controls_player--icon">
                     <i class="far fa-play-circle" id="playBtn-control" onclick="clickPlayorPause()"></i>
-                    <i class="far fa-pause-circle"id="pauseBtn-control" onclick="clickPlayorPause()"></i>
+                    <i class="far fa-pause-circle" id="pauseBtn-control" onclick="clickPlayorPause()"></i>
                 </li>
                 <li class="controls_player--icon">
-                    <i class="fas fa-step-forward"></i>
+                    <i class="fas fa-step-forward" onclick="commingSoon()"></i>
                 </li>
                 <li class="controls_player--icon">
-                    <i class="fas fa-redo"></i>
+                    <i class="fas fa-redo" id="replayBtn"></i>
                 </li>
             </ul>
             <div class="controls_time">
                 <span class="controls_time--right">00.00</span>
                 <input id="progress" class="controls_time--range" value="0" type="range" step="1" min="0" max="100">
-                <span class="controls_time--left">03.22</span>
+                <span class="controls_time--left">00.00</span>
             </div>
         </div>
 
@@ -151,29 +200,76 @@
         <div class="controls-extend">
             <ul class="extend-item">
                 <li class="controls_extend--lever_item hion-on-mobile-table">
-                    <i class="fab fa-youtube-square"></i>
+                    <i class="fab fa-youtube-square" onclick="commingSoon()"></i>
                     <!-- <i class="fab fa-vimeo"></i> -->
                 </li>
                 <li class="controls_extend--lever_item  hion-on-mobile-table">
-                    <i class="fas fa-microphone"></i>
+                    <i class="fas fa-microphone" onclick="commingSoon()"></i>
                 </li>
-                <li class="controls_extend--lever_item">
-                    <i class="fas fa-volume-up"></i>
+                <li class="controls_extend--lever_item" id="btnToggle">
+                    <i class="fas fa-volume-up" id="mute" onclick="toggleMute()"></i>
+                    <script>
+                        var audio = document.getElementById('audio');
+                        var isMuted = false;
+                        var previousVolume;
+                        function toggleMute() {
+                            if (isMuted) {
+                                audio.volume = previousVolume !== undefined ? previousVolume : 1;
+                                volumeRange.value = previousVolume !== undefined ? previousVolume * 100 : 100;
+                            } else {
+                                previousVolume = audio.volume;
+                                audio.volume = 0;
+                                volumeRange.value = 0;
+                            }
+                            isMuted = !isMuted;
+                        }
+                        var volumeIcon = document.querySelector('.controls_extend--lever_item i .fa-volume-up');
+                        volumeIcon.addEventListener('click', toggleMute);
+                    </script>
                 </li>
                 <li class="controls_extend--lever_item_range">
                     <input id="controls_lever_range" type="range" class="range_volum" value="100" step="1" min="0" max="100">
+                    
                 </li>
                 <li class="controls_extend--lever_item ">
-                    <i class="fas fa-expand-alt"></i>
+                    <i class="fas fa-expand-alt" onclick="btnFullscreen()"></i>
+                    <script>
+                        function btnFullscreen() {
+                            var element = document.documentElement;
+
+                            if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                                if (element.requestFullscreen) {
+                                    element.requestFullscreen();
+                                } else if (element.mozRequestFullScreen) {
+                                    element.mozRequestFullScreen();
+                                } else if (element.webkitRequestFullscreen) {
+                                    element.webkitRequestFullscreen();
+                                } else if (element.msRequestFullscreen) {
+                                    element.msRequestFullscreen();
+                                }
+                            } else {
+                                if (document.exitFullscreen) {
+                                    document.exitFullscreen();
+                                } else if (document.mozCancelFullScreen) {
+                                    document.mozCancelFullScreen();
+                                } else if (document.webkitExitFullscreen) {
+                                    document.webkitExitFullscreen();
+                                } else if (document.msExitFullscreen) {
+                                    document.msExitFullscreen();
+                                }
+                            }
+                        }
+                    </script>
                 </li>
                 <li class="controls_extend--lever_item_boder">
                 </li>
                 <li class="controls_extend--lever_item">
-                    <i class="fas fa-sliders-h"></i>
+                    <i class="fas fa-sliders-h" onclick="commingSoon()"></i>
                 </li>
             </ul>
         </div>
     </div>
     <script src="~/Scripts/homeLayoutScript.js"></script>
 </body>
+
 </html>

@@ -9,9 +9,10 @@
         * {
             margin: 0px;
             padding: 0px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;       
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             /*chọn kiểu font*/
         }
+
         body {
             /* hàm linear đưa vô hướng màu , màu 1, màu 2  */
             background: linear-gradient(to left, #0C356A,#93BFCF);
@@ -19,6 +20,7 @@
             align-items: center;
             display: flex;
         }
+
         .form-SignUp {
             margin-top: 5%;
             width: 25%;
@@ -28,138 +30,129 @@
             border: 2px solid #ffff;
             background-color: white;
             border-radius: 10px;
-        }  
-        /*css title trang sign up*/
-        .form-SignUp .title {
-            justify-content: center;
-            align-items: center;
-            display: flex;
         }
-        .form-SignUp h1 {
-            justify-content: center;
-            padding: 30px;
-            border-radius: 10px;
-        }           
-        .form-SignUp form {
-            margin: 10px;
-            padding: 5px;
-            justify-content: center;
-            align-items: center;
-            display: block;
-        }
-        .form-SignUp form input {
-            width: 95%;
-            margin: 10px 0 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 15px;
-        }
-        .form-SignUp form input[type= button] {
-            margin-left: 35%;
-            width: 30%;
-            background-color: #1D5D9B;
-            text-decoration: none;
-            color: white;
-            box-shadow: 1px 3px 2px 1px #000000;
-            /*tạo bóng cho vật thể*/
-        }
-        /*hover: lớp trỏ vô nha đưa chuột tới nó nhận */
-        .form-SignUp form input[type= button]:hover {
-            cursor: pointer;
-            /*trỏ chuột vào nó hiện bàn tay*/
-            background-color: #93BFCF;
-            text-decoration: none;
-            color: rgb(0, 0, 0);
-            box-shadow: none;
-            transform: translateY(5px);
-            /*dịch chuyển vật thể theo chiều x y z*/
-            transition-duration: 1s;
-            /*delay thời gian chuyển động của vật thể*/
-            /*dịch chuyển nó xuống dưới 5px thời gian chạy 1s với xóa bóng => thành hiệu ứng nút button*/
-        }
-        .form-SignUp .div-or {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .form-SignUp .div-or p a {
-            text-decoration: none;
-            color: #FF6969;
-        }
-        .form-SignUp .div-or p a:hover {
-            text-decoration: none;
-            color: #219C90;
-        }
-        /*css chân trang signup*/ 
-        .form-SignUp .footer {
-            width: 100%;
-            display: block;
-            justify-content: center;
-            align-items: center;
-        }
-        .form-SignUp .footer .facebook {
-            border: 2px solid #0C356A;
-            padding: 5px;
-            margin: 20px 0 5px 0;
-            background-color: #0C356A;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .form-SignUp .footer .facebook a {
-            text-decoration: none;
-            color: white;
-        }
-        .form-SignUp .footer .facebook a:hover {
-            color: #219C90;
-        }
-        .form-SignUp .footer .facebook img {
-            width: 5%;
-        }
-        .form-SignUp .footer .google {
-            border: 2px solid #B4B4B3;
-            padding: 5px;
-            margin: 5px 0 10px 0;
-            background-color: #ffff;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .form-SignUp .footer .google a {
-            text-decoration: none;
-            color: gray;
-        }
-        .form-SignUp .footer .google a:hover {
-            color: #219C90;
-        }
-        .form-SignUp .footer .google img {
-            width: 5%;
-        }
+            /*css title trang sign up*/
+            .form-SignUp .title {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .form-SignUp h1 {
+                justify-content: center;
+                padding: 30px;
+                border-radius: 10px;
+            }
+
+            .form-SignUp form {
+                margin: 10px;
+                padding: 5px;
+                justify-content: center;
+                align-items: center;
+                display: block;
+            }
+
+                .form-SignUp form input {
+                    width: 95%;
+                    margin: 10px 0 10px 0;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-size: 15px;
+                }
+
+                    .form-SignUp form button {
+                        margin-left: 35%;
+                        width: 30%;
+                        background-color: #1D5D9B;
+                        text-decoration: none;
+                        color: white;
+                        box-shadow: 1px 3px 2px 1px #000000;
+                        /*tạo bóng cho vật thể*/
+                    }
+                        /*hover: lớp trỏ vô nha đưa chuột tới nó nhận */
+                        .form-SignUp form button:hover {
+                            cursor: pointer;
+                            /*trỏ chuột vào nó hiện bàn tay*/
+                            background-color: #93BFCF;
+                            text-decoration: none;
+                            color: rgb(0, 0, 0);
+                            box-shadow: none;
+                            transform: translateY(5px);
+                            /*dịch chuyển vật thể theo chiều x y z*/
+                            transition-duration: 1s;
+                            /*delay thời gian chuyển động của vật thể*/
+                            /*dịch chuyển nó xuống dưới 5px thời gian chạy 1s với xóa bóng => thành hiệu ứng nút button*/
+                        }
+
+            .form-SignUp .div-or {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .form-SignUp .div-or p a {
+                    text-decoration: none;
+                    color: #FF6969;
+                }
+
+                    .form-SignUp .div-or p a:hover {
+                        text-decoration: none;
+                        color: #219C90;
+                    }
+            /*css chân trang signup*/
+            .form-SignUp .footer {
+                width: 100%;
+                display: block;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .form-SignUp .footer .facebook {
+                    border: 2px solid #0C356A;
+                    padding: 5px;
+                    margin: 20px 0 5px 0;
+                    background-color: #0C356A;
+                    border-radius: 10px;
+                    text-align: center;
+                }
+
+                    .form-SignUp .footer .facebook a {
+                        text-decoration: none;
+                        color: white;
+                    }
+
+                        .form-SignUp .footer .facebook a:hover {
+                            color: #219C90;
+                        }
+
+                    .form-SignUp .footer .facebook img {
+                        width: 5%;
+                    }
+
+                .form-SignUp .footer .google {
+                    border: 2px solid #B4B4B3;
+                    padding: 5px;
+                    margin: 5px 0 10px 0;
+                    background-color: #ffff;
+                    border-radius: 10px;
+                    text-align: center;
+                }
+
+                    .form-SignUp .footer .google a {
+                        text-decoration: none;
+                        color: gray;
+                    }
+
+                        .form-SignUp .footer .google a:hover {
+                            color: #219C90;
+                        }
+
+                    .form-SignUp .footer .google img {
+                        width: 5%;
+                    }
     </style>
 </head>
-<body>   
-    <div>
-        @RenderBody()
-    </div>
-    <div class="form-SignUp">  
-        <div class="title">
-            <h1>SIGN UP</h1>
-        </div>
-        <hr/>  
-        <form>
-            <input type="email" placeholder="Email" name="Email" />
-            <input type="password" placeholder="Password" name="Password" />
-            <input type="password" placeholder="Confirm Password" name="Confirm Password" />
-            <input type="button" value="Sign Up" />
-        </form>
-        <div class="div-or">
-            <p>Already have an account? <a href="#">Login</a></p>
-        </div>
-        <br />
-        <hr style="border-width: 2px;"/>
-        <div class="footer">
-            <p class="facebook"><img src="~/Content/images/Facebook_Logo_(2019).png.png" alt=""><a href="https://www.facebook.com/?locale=vi_VN"> Login with Facebook</a></p>
-            <p class="google"><img src="~/Content/images/gg.png" alt=""><a href="https://accounts.google.com/"> Login with Google</a></p>
-        </div>
-    </div>
-
+<body>
+    @RenderBody()
 </body>
 </html>

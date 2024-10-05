@@ -1,0 +1,170 @@
+﻿@model MusicWeb.Models.Singer
+@{
+    ViewBag.Title = "DetailMusic";
+    Layout = "~/Views/Shared/_homeLayout.cshtml";
+}
+<style>
+    .all-info-musican {
+        height: 100%;
+        width: 100%;
+    }
+
+        .all-info-musican .info-musican {
+            display: flex;
+            height: 35%;
+            width: auto;
+            background-image: linear-gradient(to bottom, white, #F18A9B);
+        }
+
+            .all-info-musican .info-musican .info-1 {
+                font-size: 30px;
+                font-weight: 500;
+                margin-top: 50px;
+                padding-right: 20px;
+                color: black;
+                margin-right: 20px;
+            }
+
+            .all-info-musican .info-musican .Title-Song {
+                font-size: 50px;
+                font-weight: 800;
+                margin-top: 10px;
+                padding-right: 20px;
+                color: black;
+            }
+
+            .all-info-musican .info-musican .info-song {
+                font-size: 20px;
+                margin-top: 20px;
+                color: black;
+            }
+
+    .action-bar-of-music {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .content-spacing {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .all-info-musican .faded-img {
+        height: 180px;
+        width: 180px;
+        float: left;
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 20px;
+        box-shadow: 2px 2px 4px black;
+    }
+
+    .all-info-musican .action-bar-of-music .action-bar-of-music-row span .play-pause {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    .all-info-musican .action-bar-of-music .action-bar-of-music-row span .btn-liked {
+        font-size: 30px;
+        margin: 30px;
+    }
+
+
+    .btn-liked {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: grey;
+    }
+
+
+
+    .all-info-musican .action-bar-of-music .action-bar-of-music-row span .ellipsis {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    .all-info-musican .content-spacing .lyrics-song p {
+        font-size: 10px;
+        color: white;
+        height:300px;
+        width:80%;
+        margin-left:50px;
+    }
+
+    .all-info-musican .home-artist {
+        width: 100%;
+        height: 20%;
+        font-size: 20px;
+        border-radius: 5px;
+        background: #121212;
+        transition: all 0.3s ease;
+    }
+
+        .all-info-musican .home-artist .artist-avatar {
+            width: auto;
+            height: 100px;
+        }
+
+            .all-info-musican .home-artist .artist-avatar img {
+                transform: scale(0.4);
+                border-radius: 50%;
+                float: left;
+                position: relative;
+                right: 30px;
+                bottom: 69px;
+            }
+
+            .all-info-musican .home-artist .artist-avatar h4 {
+                float: left;
+                position: relative;
+                right: 80px;
+                top: 10px;
+            }
+
+            .all-info-musican .home-artist .artist-avatar h6 {
+                float: left;
+                position: relative;
+                right: 140px;
+                top: 50px;
+            }
+
+
+
+        .all-info-musican .home-artist:hover {
+            background-color: #1b1a1a;
+        }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        color: black;
+    }
+
+    .story {
+        font-size: 30px !important;
+        font-weight: 400;
+        color: black !important;
+    }
+</style>
+<section class="all-info-musican">
+    <div class="info-musican">
+        <img class="faded-img" src="@Model.ImageSinger" />
+        <form>
+            <p class="info-1"><a>Singer</a></p>
+            <p class="Title-Song">@Model.Name_singer</</p>
+            @*<p class="info-song"><a href="#" style="text-decoration:none">@Model.Name_singer</a></p>*@
+        </form>
+    </div>
+    <div class="content-spacing">
+        <h2>Tiểu sử:</h2>
+        <div class="lyrics-song">
+            <p class="story">@Model.Story</p>
+        </div>
+
+    </div>
+</section>
+
+

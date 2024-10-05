@@ -5,23 +5,24 @@
 }
 
 <!-- form login first  -->
-
+<script src="~/Scripts/homeLayoutScript.js"></script>
 <section class="container">
     <div class="form-login">
         <div class="form-content">
             <header>Login</header>
             <div class="linetop"><br /> </div>
-            <form action="#">
+            <form method="post">
+                <p style="color: red">@ViewBag.ErrorLogin</p>
                 <div class="field field-input">
-                    <input type="email" placeholder="Your Email" class="input" />
+                    <input type="text" placeholder="Your Username" name="username" class="input" />
                 </div>
 
                 <div class=" field field-input">
-                    <input type="password" placeholder="Your Password" class="psw" />
+                    <input type="password" placeholder="Your Password" name="password" class="psw" />
                 </div>
 
                 <div class="form-link">
-                    <a href="#" class="forgot-pass">Forgot Password? </a>
+                    <a onclick="commingSoon()" href="#" class="forgot-pass">Forgot Password? </a>
                 </div>
 
                 <div class="field-button">
@@ -30,17 +31,29 @@
 
             </form>
             <div class="change-link">
-                <span>Don't have an account?<a href="#" class="sign-up-link"> SignUp </a></span>
+                <span>Don't have an account?<a href="SignUp" class="sign-up-link"> SignUp </a></span>
             </div>
         </div>
         <div class="line">
             <br />
         </div>
         <div class="options-media">
-            <p><a href="#" class="field-facebook"> <img src="~/Content/images/Facebook_Logo_(2019).png" alt="" class="facebook-img" />Login with Facebook</a> </p>
-            <p><a href="#" class="field-google"> <img src="~/Content/images/Google__G__Logo.svg.png" alt="" class="google-img" /> <span>Login with Google</span> </a></p>
+            <p onclick="commingSoon()"><a href="#" class="field-facebook" > <img src="~/Content/images/Facebook_Logo_(2019).png.png" alt="" class="facebook-img" />Login with Facebook</a> </p>
+            <p><a href="#" class="field-google" onclick="commingSoon()"> <img src="~/Content/images/gg.png" alt="" class="google-img" /> <span>Login with Google</span> </a></p>
         </div>
     </div>
+    <script>
+        document.querySelector('.form-login form').addEventListener('submit', function (event) {
+            var username = document.querySelector('input[name="username"]').value;
+            var password = document.querySelector('input[name="password"]').value;
+
+            if (!username || !password) {
+                event.preventDefault();
+                alert('Bạn chưa nhập thông tin đăng nhập');
+            }
+        });
+    </script>
+
 </section>
 
 

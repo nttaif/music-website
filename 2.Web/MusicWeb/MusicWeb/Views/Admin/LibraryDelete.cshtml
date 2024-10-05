@@ -1,0 +1,63 @@
+﻿@model MusicWeb.Models.LibraryModel
+
+@{
+    ViewBag.Title = "LibraryDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XOÁ BÀI HÁT TRONG THƯ VIỆN NGƯỜI DÙNG</h2>
+
+<h3>Bạn có chắc chắn?</h3>
+@using (Html.BeginForm("LibraryDelete", "Admin", FormMethod.Post))
+{
+    <div>
+        <h4>LibraryModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.HiddenFor(model => model.ID_Library)
+                @Html.DisplayNameFor(model => model.ID_Library)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ID_Library)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.adminUser.NameUser)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.adminUser.NameUser)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.song.Name_Song)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.song.Name_Song)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.song.Audio_Song)
+            </dt>
+            <dd>
+                <audio controls>
+                    <source src="@Url.Content(Model.song.Audio_Song)">
+                </audio>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.song.ImageSong)
+            </dt>
+            <dd>
+                <img src="@Url.Content(Model.song.ImageSong)" height="200" width="200" id="previewImage" />
+            </dd>
+        </dl>
+
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Library")
+        </div>
+    </div>
+}
+

@@ -4,8 +4,44 @@
     Layout = "~/Views/Shared/_SignUp_LayoutPage.cshtml";
 
 }
+<script src="~/Scripts/homeLayoutScript.js"></script>
 
+<div class="form-SignUp">
+    <div class="title">
+        <h1>SIGN UP</h1>
+    </div>
+    <hr />
+    <form method="post">
+        <p style="color:red">@ViewBag.ErrorSignUp</p>
+        <input type="text" placeholder="Username" name="username" />
+        <input type="text" placeholder="Email" name="email" />
+        <input type="password" placeholder="Password" name="password" />
+        <input type="password" placeholder="Confirm Password" name="confirmPassword" />
+        <button>Sign Up</button>
+    </form>
+    <div class="div-or">
+        <p>Already have an account? <a href="Login">Login</a></p>
+    </div>
+    <br />
+    <hr style="border-width: 2px;" />
+    <div class="footer">
+         <p class="facebook" onclick="commingSoon()"><img src="~/Content/images/Facebook_Logo_(2019).png.png" alt=""><a href="#"> Login with Facebook</a></p>
+        <p class="google" onclick="commingSoon()"><img src="~/Content/images/gg.png" alt=""><a href="#"> Login with Google</a></p>
+    </div>
+</div>
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        var username = document.querySelector('input[name="username"]').value;
+        var email = document.querySelector('input[name="email"]').value;
+        var password = document.querySelector('input[name="password"]').value;
+        var confirmPassword = document.querySelector('input[name="confirmPassword"]').value;
 
-    
+        if (!username || !email || !password || !confirmPassword) {
+            event.preventDefault();
+            alert('Bạn chưa nhập thông tin đăng ký');
+        }
+    });
+</script>
+
 
 

@@ -1,0 +1,383 @@
+﻿.media-of-song {
+    background-color: #fbd3d2;
+    display: flex;
+    margin: 0;
+    height: 55px;
+}
+
+    .media-of-song:hover {
+        background-color: #f0b3b1;
+    }
+
+.thumbnail-img {
+    width: 45px;
+    height: 45px;
+}
+
+    .thumbnail-img img {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 10%;
+        position: relative;
+        left: 10px;
+        top: 5px;
+        /*filter:blur(1px);*/
+    }
+
+.song-prefix .number-top-one {
+    font-size: 32px;
+    font-weight: 900;
+    color: rgba(74,144,226,0);
+    opacity: 1;
+    font-family: 'Overpass', sans-serif;
+    font-family: 'Public Sans', sans-serif;
+}
+
+    .song-prefix .number-top-one:nth-child(n+10) {
+        margin-left: -5px;
+    }
+
+
+
+.hover-play-btn {
+    position: relative;
+    bottom: 25px;
+    left: 25px;
+    font-size: 20px;
+    display: none;
+}
+
+.song-prefix span {
+    position: relative;
+    margin: 3px;
+    left: 10px;
+    top: 10px;
+    padding: 5px;
+}
+
+.media-left-is-name-thumb,
+.media-content {
+    flex: 4;
+    margin: 0 10px;
+}
+
+.media-content, media-right-action {
+    margin: 0 10px;
+    flex: 1;
+}
+
+.media-content {
+    display: flex;
+}
+
+    .media-content .name-album .number-click {
+        position: relative;
+        bottom: 40px;
+        left: 200px;
+        color: black;
+    }
+
+.info-form .song-name {
+    position: relative;
+    left: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.info-form p a {
+    position: relative;
+    left: 10px;
+    font-size: 15px;
+    color: black;
+    bottom: 10px;
+}
+
+.song-prefix {
+    width: 83px;
+    height: 50px;
+}
+
+.dau-gach svg {
+    position: relative;
+    bottom: 25px;
+    left: 55px;
+    color: #808080;
+}
+
+.media-left-is-name-thumb {
+    width: 500px;
+    height: 50px;
+    display: flex
+}
+
+.media-left-is-name-thumb,
+.media-content {
+    flex: 1;
+    margin: 0 10px;
+}
+
+
+.name-album a {
+    text-align: center;
+    display: block;
+    height: 50px;
+    padding: 10px;
+    color: black;
+}
+
+.media-right-action {
+    width: 50px;
+    height: 20px;
+}
+
+.time-song {
+    float: right;
+    padding: 10px;
+}
+
+.song-on-the-first {
+    border-top: 1px solid #969595;
+    border-bottom: 1px solid #969595;
+}
+
+.action-level {
+    display: inline-block;
+    left: 100px;
+    top: 2px;
+    width: 50px;
+}
+
+.level {
+    display: flex;
+    margin: 0 20px;
+}
+
+    .level .item-ver {
+        margin: 5px 10px;
+        position: relative;
+        bottom: 2px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+        right: 80px;
+    }
+
+.btn-like-music {
+    margin: 5px 10px;
+    position: relative;
+    bottom: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: none;
+    right: 70px;
+}
+
+    .btn-like-music.liked {
+        margin: 5px 10px;
+        position: relative;
+        bottom: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+        right: 70px;
+    }
+
+.level .item-ver:hover {
+    transform: scale(1.2);
+}
+
+.btn-like-music,
+.btn-like-music.liked {
+    display: none;
+}
+
+@media(hover:hover) {
+    .media-of-song:hover .btn-like-music,
+    .btn-like-music.liked {
+        display: block;
+    }
+}
+
+@media(hover:hover) {
+    .media-of-song:hover .level .item-ver {
+        display: block;
+    }
+}
+
+@media(hover:hover) {
+    .media-of-song:hover .hover-play-btn {
+        display: block;
+    }
+}
+
+@media(hover:hover) {
+    .media-of-song:hover .thumbnail-img img {
+        filter: blur(1px);
+    }
+}
+
+@media(hover:hover) {
+    .media-of-song:hover .time-song {
+        display: none;
+    }
+}
+
+@media (max-width:320px) {
+    h2 {
+        font-size: 10px
+    }
+}
+
+@media (max-width:1199px) {
+
+    .song-name span b {
+        font-size: 12px;
+    }
+
+    .name-of-singer-mixer a {
+        font-size: 18px;
+    }
+
+    .name-album .name-album-1 a {
+        font-size: 12px;
+        float: left;
+    }
+
+    .number-click {
+        font-size: 14px;
+    }
+
+    .time-song {
+        font-size: 14px;
+    }
+
+    .media-left-is-name-thumb,
+    .media-content {
+        flex: 3;
+        margin: 0 10px;
+    }
+
+    .song-prefix, thumbnail-img {
+        flex: 0;
+    }
+
+    .info-form p a {
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+        font-size: 10px;
+    }
+
+    .level .item-ver {
+        margin: 5px 10px;
+        position: relative;
+        bottom: 2px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+        right: 80px;
+    }
+}
+
+@media (max-width: 710px) {
+    .media-left-is-name-thumb,
+    .media-content {
+        flex: 15;
+        margin: 0 10px;
+        float: left;
+    }
+
+    .media-content {
+        display: block;
+    }
+
+    .name-album .name-album-1 a {
+        font-size: 8px;
+        float: left;
+    }
+
+
+    .level .item-ver {
+        margin: 5px 10px;
+        position: relative;
+        bottom: 2px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+        right: 80px;
+    }
+
+    .name-album {
+        display: flex;
+        align-items: center;
+    }
+
+        .name-album a {
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 8px;
+        }
+
+    .media-content .name-album .number-click {
+        position: relative;
+        bottom: 40px;
+    }
+
+    .song-prefix, thumbnail-img {
+        flex: 0;
+    }
+
+    .name-of-singer-mixer a {
+        font-size: 10px;
+    }
+
+    .song-on-the-first .number-top-one {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 540px) {
+    .media-left-is-name-thumb,
+    .media-content {
+        flex: 6;
+        margin: 0 10px;
+        float: left;
+    }
+
+    .media-content {
+        display: block;
+    }
+
+    .name-album .name-album-1 a {
+        font-size: 8px;
+        float: left;
+    }
+
+    .song-name span b {
+        font-size: 8px;
+    }
+
+    .level .item-ver {
+        margin: 5px 10px;
+        position: relative;
+        bottom: 2px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+        right: 70px;
+    }
+
+    .info-form p a {
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+        font-size: 8px;
+    }
+}

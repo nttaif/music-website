@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MusicWeb.Models.Singer>
+
+@{
+    ViewBag.Title = "Singer";
+}
+
+<h2>QUẢN LÝ CA SĨ</h2>
+
+<p>
+    @Html.ActionLink("Create Singer", "AddSinger", null,new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Singer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_singer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Story)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.View_moth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageSinger)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Singer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_singer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Story)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.View_moth)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ImageSinger)*@
+            <img src="@Url.Content(item.ImageSinger)" alt="Avatar" style="width:150px;height:150px;">
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditSinger", new {  id=item.ID_Singer }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "DeleteSinger", new { id = item.ID_Singer }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
